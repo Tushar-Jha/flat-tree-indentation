@@ -20,12 +20,12 @@ export class RestructureTree {
       if(!flatTree[node]) return newNode
 
       flatTree[node]?.forEach((child) => {
-          if(!!processedStates[child]) {
-            newNode.children.push(processedSubtrees[child]!);
-            delete processedSubtrees[child];
-          } else {
-            newNode.children.push(recursiveTraversal(child));
-          }
+        if(!!processedStates[child]) {
+          newNode.children.push(processedSubtrees[child]!);
+          delete processedSubtrees[child];
+        } else {
+          newNode.children.push(recursiveTraversal(child));
+        }
       });
       processedStates[node] =true;
 

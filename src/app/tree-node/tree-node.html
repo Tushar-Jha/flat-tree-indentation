@@ -1,8 +1,12 @@
 @if(tree()?.length){
     @for(node of tree(); track node.name) {
-        <div [style.padding-left.px]="level()*30">-{{node.name}}</div>
+    <li>
+        <span [style.margin-left.px]="level()*30">-{{node.name}}</span>
         @if(node.children.length) {
-            <app-tree-node [level]="level() + 1" [tree]="node.children"></app-tree-node>
+            <ul>
+                <app-tree-node [level]="level() + 1" [tree]="node.children"></app-tree-node>
+            </ul>
         }
+    </li>
     }
 }

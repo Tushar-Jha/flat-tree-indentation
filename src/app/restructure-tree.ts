@@ -11,7 +11,6 @@ export type NestedTree = TreeNode[];
 export class RestructureTree {
 
   flatToNested(flatTree: FlatTree): NestedTree {
-    const nestedTree: NestedTree = [];
     const processedStates: Record<string, boolean> = Object.keys(flatTree).reduce((map, key) => ({ ...map, [key]: false }), {});
     const processedSubtrees: Record<string, TreeNode> = {};
 
